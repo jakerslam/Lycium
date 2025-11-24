@@ -1,34 +1,40 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-
+  const sections = [
+    {id: "s1", title: "What is AI?", content:"AI is a broad field of computer science that focuses on creating machines that can perform tasks that typically require human intelligence."},
+    {id: "s2", title: "What is Machine Learning?", content:"Machine Learning is a subset of AI that involves training models on data to make predictions or decisions without being explicitly programmed."},
+    {id: "s3", title: "What is Deep Learning?", content:"Deep Learning is a subset of Machine Learning that uses neural networks with many layers to model complex patterns in data."}
+  ];
+  const currentSection = sections[0];
+  
   return (
-    <>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+
+        <div className="app-root">
+          <aside className="sidebar">
+            <h3 className="sidebar-title">Sections</h3>
+            <div className="sidebar-list">
+              {sections.map((section) => (
+                <div key={section.id} className="sidebar-item">
+                  {section.title}
+                </div>
+              ))}
+            </div>
+          </aside>
+
+          <main className="content-view">
+            <h1 className="course-title">Intro to Artificial Intelligence</h1>
+            <h2 className="section-title">{currentSection.title}</h2>
+            <p className="section-content">
+              {currentSection.content}
+            </p>
+          </main>
+        </div>
+
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
   )
 }
 
