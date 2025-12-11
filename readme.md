@@ -13,7 +13,7 @@ Then open the URL that Vite provides (typically `http://localhost:5173`) to laun
 This project helped me practice designing reusable components, building interactive UI elements, and structuring a scalable front-end architecture that could evolve into a more advanced learning system in the future.
 
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/FjGd8ojGa14)
 
 # Web Pages
 
