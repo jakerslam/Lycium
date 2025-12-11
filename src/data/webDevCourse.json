@@ -1,0 +1,130 @@
+{
+  "title": "Intro to Web Development",
+  "modules": [
+    {
+      "id": "m1",
+      "title": "HTML & Structure",
+      "sections": [
+        {
+          "id": "s1",
+          "title": "What is a Web Page?",
+          "content": [
+            {
+              "type": "text",
+              "value": "A web page is a document delivered over the internet and rendered by a browser. It is usually written in HTML, styled with CSS, and can be made interactive with JavaScript."
+            },
+            {
+              "type": "video",
+              "url": "https://www.youtube.com/embed/pQN-pnXPaVg"
+            }
+          ]
+        },
+        {
+          "id": "s2",
+          "title": "Basic HTML Skeleton",
+          "content": [
+            {
+              "type": "text",
+              "value": "A basic HTML page uses <!DOCTYPE html>, followed by <html>, <head>, and <body>. The head contains metadata; the body contains visible content."
+            },
+            {
+              "type": "quiz",
+              "question": "Which HTML tag usually contains the content that users actually see on the page?",
+              "options": ["<head>", "<body>", "<meta>"],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "s3",
+          "title": "Common HTML Tags",
+          "content": [
+            {
+              "type": "text",
+              "value": "Headings are defined with <h1> through <h6>, paragraphs with <p>, links with <a>, and containers with <div> or semantic tags like <header> and <footer>."
+            }
+          ]
+        },
+        {
+          "id": "s4",
+          "title": "Links and Images",
+          "content": [
+            {
+              "type": "text",
+              "value": "Links are created with <a href=\"...\">, and images with <img src=\"...\" alt=\"...\" />. Always include meaningful alt text for accessibility."
+            },
+            {
+              "type": "quiz",
+              "question": "Which attribute on the <img> tag improves accessibility for screen readers?",
+              "options": ["href", "src", "alt"],
+              "answer": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m2",
+      "title": "CSS & Presentation",
+      "sections": [
+        {
+          "id": "s1",
+          "title": "What is CSS?",
+          "content": [
+            {
+              "type": "text",
+              "value": "CSS (Cascading Style Sheets) is used to control the visual presentation of HTML elements, including layout, colors, fonts, and spacing."
+            },
+            {
+              "type": "video",
+              "url": "https://www.youtube.com/embed/1Rs2ND1ryYc"
+            }
+          ]
+        },
+        {
+          "id": "s2",
+          "title": "Selectors and Properties",
+          "content": [
+            {
+              "type": "text",
+              "value": "CSS selectors target elements (like p or .className), and rules apply properties such as color, margin, and font-size to those elements."
+            },
+            {
+              "type": "quiz",
+              "question": "Which CSS selector targets all elements with class 'btn-primary'?",
+              "options": ["#btn-primary", ".btn-primary", "btn-primary"],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "s3",
+          "title": "The Box Model",
+          "content": [
+            {
+              "type": "text",
+              "value": "Every HTML element can be thought of as a box with content, padding, border, and margin. Understanding the box model is key to layout."
+            }
+          ]
+        },
+        {
+          "id": "s4",
+          "title": "Responsive Design",
+          "content": [
+            {
+              "type": "text",
+              "value": "Responsive design ensures that layouts adapt to different screen sizes using flexible units, media queries, and fluid grids."
+            },
+            {
+              "type": "quiz",
+              "question": "Which CSS feature is commonly used to change styles based on device width?",
+              "options": ["@screen-size", "@media", "@device"],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+

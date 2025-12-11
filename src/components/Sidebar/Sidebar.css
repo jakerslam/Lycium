@@ -38,4 +38,11 @@
 .sidebar-item.active {
   background-color: #d6e4ff;
   font-weight: 600;
+  border-left: 4px solid #4a6cf7;
+}
+
+.module-header {
+  padding-left: 0.5rem;
+  margin-top: 1rem;
+  font-weight: 600;
 }

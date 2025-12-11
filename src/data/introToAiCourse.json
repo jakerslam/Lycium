@@ -1,0 +1,129 @@
+{
+  "title": "Intro to Artificial Intelligence",
+  "modules": [
+    {
+      "id": "m1",
+      "title": "Foundations of AI",
+      "sections": [
+        {
+          "id": "s1",
+          "title": "What is AI?",
+          "content": [
+            {
+              "type": "text",
+              "value": "Artificial Intelligence is the field focused on building systems that can perform tasks which typically require human intelligence, such as reasoning, pattern recognition, and decision making."
+            },
+            {
+              "type": "video",
+              "url": "https://www.youtube.com/embed/2ePf9rue1Ao"
+            }
+          ]
+        },
+        {
+          "id": "s2",
+          "title": "Strong vs. Weak AI",
+          "content": [
+            {
+              "type": "text",
+              "value": "Weak (or narrow) AI is designed to handle specific tasks, while strong AI would match or exceed human intelligence across many domains. Today, most real-world systems are examples of weak AI."
+            },
+            {
+              "type": "quiz",
+              "question": "Which type of AI do current real-world systems like recommendation engines represent?",
+              "options": ["Strong AI", "Weak (Narrow) AI", "General Superintelligence"],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "s3",
+          "title": "Common AI Applications",
+          "content": [
+            {
+              "type": "text",
+              "value": "AI is used in recommendation systems, voice assistants, image recognition, fraud detection, and more. Many of these systems rely on pattern recognition over large datasets."
+            }
+          ]
+        },
+        {
+          "id": "s4",
+          "title": "Limitations of AI",
+          "content": [
+            {
+              "type": "text",
+              "value": "AI systems can be brittle, biased, and dependent on the data they are trained on. They do not possess human judgment, common sense, or real understanding."
+            },
+            {
+              "type": "quiz",
+              "question": "Which of the following is a common limitation of AI systems?",
+              "options": ["Perfect understanding of context", "Bias inherited from training data", "Guaranteed ethical decisions"],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m2",
+      "title": "Machine Learning Basics",
+      "sections": [
+        {
+          "id": "s1",
+          "title": "What is Machine Learning?",
+          "content": [
+            {
+              "type": "text",
+              "value": "Machine Learning is a subset of AI where systems learn patterns from data instead of being explicitly programmed with rules."
+            },
+            {
+              "type": "video",
+              "url": "https://www.youtube.com/embed/GwIo3gDZCVQ"
+            }
+          ]
+        },
+        {
+          "id": "s2",
+          "title": "Supervised vs Unsupervised Learning",
+          "content": [
+            {
+              "type": "text",
+              "value": "In supervised learning, models are trained on labeled data. In unsupervised learning, models try to discover structure in unlabeled data, such as clusters or patterns."
+            },
+            {
+              "type": "quiz",
+              "question": "Which learning type uses labeled examples like (image, label) pairs?",
+              "options": ["Unsupervised learning", "Supervised learning", "Reinforcement learning"],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "s3",
+          "title": "Overfitting and Generalization",
+          "content": [
+            {
+              "type": "text",
+              "value": "Overfitting happens when a model memorizes training data instead of learning general patterns. A well-generalized model performs well on new, unseen data."
+            }
+          ]
+        },
+        {
+          "id": "s4",
+          "title": "Real-World ML Example",
+          "content": [
+            {
+              "type": "text",
+              "value": "Spam detection is a classic ML application. Models learn from examples of 'spam' and 'not spam' emails, then classify new emails based on patterns they learned."
+            },
+            {
+              "type": "quiz",
+              "question": "Spam detection trained on labeled examples is an example of what?",
+              "options": ["Supervised learning", "Unsupervised learning", "Random guessing"],
+              "answer": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

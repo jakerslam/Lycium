@@ -1,0 +1,126 @@
+{
+  "title": "Python Basics",
+  "modules": [
+    {
+      "id": "m1",
+      "title": "Getting Started with Python",
+      "sections": [
+        {
+          "id": "s1",
+          "title": "What is Python?",
+          "content": [
+            {
+              "type": "text",
+              "value": "Python is a high-level, interpreted programming language known for its readability and large ecosystem of libraries."
+            },
+            {
+              "type": "video",
+              "url": "https://www.youtube.com/embed/kqtD5dpn9C8"
+            }
+          ]
+        },
+        {
+          "id": "s2",
+          "title": "Running Python Code",
+          "content": [
+            {
+              "type": "text",
+              "value": "You can run Python code using the interactive interpreter, scripts executed from the command line, or environments such as Jupyter notebooks and IDEs."
+            },
+            {
+              "type": "quiz",
+              "question": "Which of the following is a common way to run Python code?",
+              "options": ["Compiling to machine code only", "Using the Python interpreter", "Editing binary files directly"],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "s3",
+          "title": "Variables and Types",
+          "content": [
+            {
+              "type": "text",
+              "value": "Python variables are created when you assign a value using =. Python uses dynamic typing, so you do not need to declare types explicitly."
+            }
+          ]
+        },
+        {
+          "id": "s4",
+          "title": "Basic Input and Output",
+          "content": [
+            {
+              "type": "text",
+              "value": "The print() function outputs text, and input() reads a line of user input as a string."
+            },
+            {
+              "type": "quiz",
+              "question": "Which function prints a value to the console in Python?",
+              "options": ["echo()", "print()", "write()"],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m2",
+      "title": "Control Flow and Logic",
+      "sections": [
+        {
+          "id": "s1",
+          "title": "If Statements",
+          "content": [
+            {
+              "type": "text",
+              "value": "If statements allow you to execute code only when a condition is true. You can also use elif and else for multiple branches."
+            }
+          ]
+        },
+        {
+          "id": "s2",
+          "title": "Loops in Python",
+          "content": [
+            {
+              "type": "text",
+              "value": "Python supports for loops for iterating over sequences and while loops for running code while a condition remains true."
+            },
+            {
+              "type": "quiz",
+              "question": "Which loop is best for iterating over each item in a list?",
+              "options": ["while loop with manual index", "for loop directly over the list", "No loops are needed"],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "s3",
+          "title": "Logical Operators",
+          "content": [
+            {
+              "type": "text",
+              "value": "Python uses logical operators such as and, or, and not to combine or invert boolean expressions."
+            }
+          ]
+        },
+        {
+          "id": "s4",
+          "title": "Simple Program Example",
+          "content": [
+            {
+              "type": "text",
+              "value": "Combining variables, input, if statements, and loops allows you to build simple interactive scripts, such as guessing games or basic calculators."
+            },
+            {
+              "type": "quiz",
+              "question": "Which logical operator in Python inverts the truth value of a condition?",
+              "options": ["and", "or", "not"],
+              "answer": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
