@@ -14,3 +14,9 @@ externalPort = 3000
 [[ports]]
 localPort = 5175
 externalPort = 3001
+
+[nix]
+packages = ["run"]
+
+run = "npm run dev -- --host"
+

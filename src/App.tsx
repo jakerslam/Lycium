@@ -1,41 +1,56 @@
-import { useState } from 'react'
-import './App.css'
+// App.jsx
+
+import { useState } from "react";
+import "./App.css";
+import Sidebar from "./components/Sidebar/Sidebar";
+import ContentView from "./components/ContentView/ContentView";
 
 function App() {
-  const [count, setCount] = useState(0)
   const sections = [
-    {id: "s1", title: "What is AI?", content:"AI is a broad field of computer science that focuses on creating machines that can perform tasks that typically require human intelligence."},
-    {id: "s2", title: "What is Machine Learning?", content:"Machine Learning is a subset of AI that involves training models on data to make predictions or decisions without being explicitly programmed."},
-    {id: "s3", title: "What is Deep Learning?", content:"Deep Learning is a subset of Machine Learning that uses neural networks with many layers to model complex patterns in data."}
+    {
+      id: "s1",
+      title: "What is AI?",
+      content:
+        "AI is about building systems that can perform tasks that typically require human intelligence."
+    },
+    {
+      id: "s2",
+      title: "History of AI",
+      content:
+        "Modern AI began in the 1950s with pioneers like Alan Turing, John McCarthy, and others."
+    },
+    {
+      id: "s3",
+      title: "Types of AI",
+      content:
+        "We can roughly categorize AI into narrow AI, general AI, and superintelligent AI."
+    }
   ];
-  const currentSection = sections[0];
-  
+
+  const courseTitle = "Intro to Artificial Intelligence";
+
+  // which section is currently selected
+  const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
+
+  const currentSection = sections[currentSectionIndex];
+
+  // Handler called when user clicks in the sidebar
+  function handleSectionSelect(index) {
+    setCurrentSectionIndex(index);
+  }
+
   return (
-      <div>
+    <div className="app-root">
+      <Sidebar
+        sections={sections}
+        currentSectionIndex={currentSectionIndex}
+        onSectionSelect={handleSectionSelect}
+      />
 
-        <div className="app-root">
-          <aside className="sidebar">
-            <h3 className="sidebar-title">Sections</h3>
-            <div className="sidebar-list">
-              {sections.map((section) => (
-                <div key={section.id} className="sidebar-item">
-                  {section.title}
-                </div>
-              ))}
-            </div>
-          </aside>
-
-          <main className="content-view">
-            <h1 className="course-title">Intro to Artificial Intelligence</h1>
-            <h2 className="section-title">{currentSection.title}</h2>
-            <p className="section-content">
-              {currentSection.content}
-            </p>
-          </main>
-        </div>
-
-      </div>
-  )
+      <ContentView courseTitle={courseTitle} section={currentSection} />
+    </div>
+  );
 }
 
-export default App
+export default App;
+
