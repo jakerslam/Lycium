@@ -13,6 +13,7 @@ export default function ContentView({
   isFirstSection,
   isLastSection,
   progressPercentage,
+  markComplete
 }) {
   if (!section) {
     return (
@@ -27,7 +28,7 @@ export default function ContentView({
   
   return (
     <main className="content-view">
-      <h1 className="course-title">{courseTitle}</h1>
+      <h1 className="course-title">{moduleTitle}</h1>
       {/* New Module Header */}
       {
         <h3 className="progress-percentage">
@@ -54,20 +55,30 @@ export default function ContentView({
 </div>
 
       <div className="section-nav">
-        <button
-          className="nav-button"
-          onClick={onPrev}
-          disabled={isFirstSection}
-        >
-          Previous
-        </button>
-        <button
-          className="nav-button"
-          onClick={onNext}
-          disabled={isLastSection}
-        >
-          Next
-        </button>
+        <div className="nav-button-wrapper">
+          <button
+            className="nav-button"
+            onClick={onPrev}
+            disabled={isFirstSection}
+          >
+            Previous
+          </button>
+        </div>
+        <div className="nav-button-wrapper">
+          <button
+            className="nav-button"
+            onClick={markComplete}
+          >
+            Complete
+          </button>
+          <button
+            className="nav-button"
+            onClick={onNext}
+            disabled={isLastSection}
+          >
+            Next
+          </button>
+        </div>
       </div>
     </main>
   );

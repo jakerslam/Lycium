@@ -5,9 +5,9 @@ import "./App.css";
 import Sidebar from "./components/Sidebar/Sidebar";
 import ContentView from "./components/ContentView/ContentView";
 import TopBar from "./components/TopBar/TopBar";
-import aiCourse from "./data/introToAiCourse.json";
-import webDevCourse from "./data/webDevCourse.json";
-import pythonCourse from "./data/introToPythonCourse.json"
+import aiCourse from "./courseData/introToAiCourse.json";
+import webDevCourse from "./courseData/webDevCourse.json";
+import pythonCourse from "./courseData/introToPythonCourse.json"
 
 
 function App() {
@@ -57,20 +57,26 @@ function App() {
     ? ((currentSectionIndex) / (sections.length - 1)) * 100 
     : 0;
   const currentModuleIndex = currentSection.moduleIndex;
-
   const moduleSections = sections.filter(
     (s) => s.moduleIndex === currentModuleIndex
   );
-
   const moduleSectionIndex = moduleSections.findIndex(
     (s) => s.id === currentSection.id
   );
-
   const moduleProgressPercentage =
     moduleSections.length > 1
       ? (moduleSectionIndex / (moduleSections.length - 1)) * 100
       : 0;
 
+
+  // varibles for saving progress
+  const progressStorageKey = `lyceum-progress-${currentCourseKey}`;
+  const saved = localStorage.getItem(progressStorageKey);
+  const initialProgress: { completedSectionIds: string[] } = saved 
+    ? JSON.parse(saved) 
+    : { completedSectionIds: [] };
+  const [progress, setProgress] = useState(initialProgress);
+  const savedSection = 0;
   
   // Handler called when user clicks in the sidebar
   function handleSectionSelect(index) {
@@ -92,7 +98,19 @@ function App() {
   function handleCourseChange(evt) {
     const newKey = evt.target.value;
     setCurrentCourseKey(newKey);
-    setCurrentSectionIndex(0); // We might save progress in the future but for now it resets to the first section
+    setCurrentSectionIndex(savedSection); // We might save progress in the future but for now it resets to the first section
+  }
+
+  function handleCompleteSection(sectionId: string) {
+    setProgress((prev: { completedSectionIds: string[] }) => {
+      const set = new Set(prev.completedSectionIds);
+      set.add(sectionId);
+
+      const updated = {...prev, completedSectionIds: Array.from(set)};
+      localStorage.setItem(progressStorageKey, JSON.stringify(updated));
+      return updated;
+    });
+    console.log("marked complete!");
   }
   
   return (
@@ -122,6 +140,7 @@ function App() {
       isFirstSection={isFirstSection}
       isLastSection={isLastSection}
       progressPercentage={moduleProgressPercentage}
+      markComplete={handleCompleteSection}
       />
       </div>
   </div>
