@@ -6,7 +6,9 @@ export default function Sidebar({
   onSectionSelect,
   currentCourseKey,
   onCourseChange,
-  courses
+  courses,
+  courseTitle,
+  progressPercentage
 }) {
   
   return (
@@ -31,7 +33,17 @@ export default function Sidebar({
       </div>
       
       {/* Section list below the course selector */}
-      <h3 className="sidebar-title">Sections</h3>
+      <h3 className="sidebar-title">{courseTitle}</h3>
+
+      <h3 className="progress-percentage">
+        {Math.round(progressPercentage)}% complete
+      </h3>
+      <div className="progress-bar">
+        <div
+          className="progress-bar-fill"
+          style={{ width: `${progressPercentage}%` }}
+        />
+      </div>
       
       <div className="sidebar-section-list">
         {sections.map((section, idx) => {
@@ -51,7 +63,11 @@ export default function Sidebar({
                 className={`sidebar-item ${
                   idx === currentSectionIndex ? "active" : ""
                 }`}
-                onClick={() => onSectionSelect(idx)}
+                onClick={() => {
+                  onSectionSelect(idx)
+                  console.log("Section clicked:", idx)
+                }
+                }
               >
                 {section.displayNumber} {section.title}
               </div>

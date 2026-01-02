@@ -11,12 +11,13 @@ export default function ContentView({
   onNext,
   onPrev,
   isFirstSection,
-  isLastSection
+  isLastSection,
+  progressPercentage,
 }) {
   if (!section) {
     return (
       <main className="content-view">
-        <h1 className="course-title">{courseTitle}</h1>
+        <h1 className="course-title">{moduleTitle}</h1>
         <p className="section-content">No section selected.</p>
       </main>
     );
@@ -28,11 +29,20 @@ export default function ContentView({
     <main className="content-view">
       <h1 className="course-title">{courseTitle}</h1>
       {/* New Module Header */}
-      {moduleTitle && (
-        <h3 className="module-title">
-          {moduleTitle}
+      {
+        <h3 className="progress-percentage">
+          {Math.round(progressPercentage)}% complete
         </h3>
-      )}
+      }
+
+      {/* Section Title With Decimal */}
+      <div className="progress-bar">
+        <div
+          className="progress-bar-fill"
+          style={{ width: `${progressPercentage}%` }}
+        />
+      </div>
+      
       {/* Section Title With Decimal */}
       <h2 className="section-title">
         {section.displayNumber} {section.title}

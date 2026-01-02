@@ -43,33 +43,50 @@ function App() {
   );
   
   const currentSection = sections[currentSectionIndex];
+  if (currentSectionIndex < 0 || currentSectionIndex >= sections.length) {
+    console.warn("Invalid currentSectionIndex:", currentSectionIndex);
+  }
+  // const module
   const moduleIndex = currentSection.moduleIndex;
   const moduleTitle = currentSection.moduleTitle;
   const isFirstSection = currentSectionIndex === 0;
   const isLastSection = currentSectionIndex === sections.length - 1;
 
+  // Calculate progress percentages for the progress bar/tab
+  const courseProgressPercentage = sections.length > 1 
+    ? ((currentSectionIndex) / (sections.length - 1)) * 100 
+    : 0;
+  const currentModuleIndex = currentSection.moduleIndex;
+
+  const moduleSections = sections.filter(
+    (s) => s.moduleIndex === currentModuleIndex
+  );
+
+  const moduleSectionIndex = moduleSections.findIndex(
+    (s) => s.id === currentSection.id
+  );
+
+  const moduleProgressPercentage =
+    moduleSections.length > 1
+      ? (moduleSectionIndex / (moduleSections.length - 1)) * 100
+      : 0;
+
+  
   // Handler called when user clicks in the sidebar
   function handleSectionSelect(index) {
     setCurrentSectionIndex(index);
   }
 
   function handleNextSection() {
-    setCurrentSectionIndex((prevIndex) => {
-      if (prevIndex >= sections.length - 1) {
-        return prevIndex;
-      }
-      return prevIndex + 1;
-    }
+    setCurrentSectionIndex((prev) =>
+      Math.min(prev + 1, sections.length - 1)
     );
   }
 
   function handlePrevSection() {
-    setCurrentSectionIndex((prevIndex) => {
-      if (prevIndex <= 0) {
-        return prevIndex;
-      }
-      return prevIndex - 1;
-    });
+    setCurrentSectionIndex((prev) =>
+      Math.max(prev - 1, 0)
+    );
   }
   
   function handleCourseChange(evt) {
@@ -91,6 +108,8 @@ function App() {
       currentCourseKey={currentCourseKey}
       onCourseChange={handleCourseChange}
       courses={courses}
+      courseTitle={courseTitle}
+      progressPercentage={courseProgressPercentage}
     />
 
     <ContentView 
@@ -102,6 +121,7 @@ function App() {
       onPrev={handlePrevSection}
       isFirstSection={isFirstSection}
       isLastSection={isLastSection}
+      progressPercentage={moduleProgressPercentage}
       />
       </div>
   </div>
