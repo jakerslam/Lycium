@@ -77,7 +77,8 @@ function App() {
     : { completedSectionIds: [] };
   const [progress, setProgress] = useState(initialProgress);
   const savedSection = 0;
-  
+  const isCompleted = progress.completedSectionIds.includes(currentSection.id);
+  const orderMandatory = false;
   // Handler called when user clicks in the sidebar
   function handleSectionSelect(index) {
     setCurrentSectionIndex(index);
@@ -102,11 +103,11 @@ function App() {
   }
 
   function handleCompleteSection(sectionId: string) {
-    setProgress((prev: { completedSectionIds: string[] }) => {
+    setProgress((prev) => {
       const set = new Set(prev.completedSectionIds);
       set.add(sectionId);
 
-      const updated = {...prev, completedSectionIds: Array.from(set)};
+      const updated = { ...prev, completedSectionIds: Array.from(set) };
       localStorage.setItem(progressStorageKey, JSON.stringify(updated));
       return updated;
     });
@@ -141,6 +142,8 @@ function App() {
       isLastSection={isLastSection}
       progressPercentage={moduleProgressPercentage}
       markComplete={handleCompleteSection}
+      isComplete={isCompleted}
+      orderMandatory={orderMandatory}
       />
       </div>
   </div>

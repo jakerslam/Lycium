@@ -13,7 +13,9 @@ export default function ContentView({
   isFirstSection,
   isLastSection,
   progressPercentage,
-  markComplete
+  markComplete,
+  isComplete,
+  orderMandatory
 }) {
   if (!section) {
     return (
@@ -68,13 +70,14 @@ export default function ContentView({
           <button
             className="nav-button"
             onClick={markComplete}
+            disabled={isComplete}
           >
             Complete
           </button>
           <button
             className="nav-button"
             onClick={onNext}
-            disabled={isLastSection}
+            disabled={isLastSection || (orderMandatory && !isComplete)}
           >
             Next
           </button>
